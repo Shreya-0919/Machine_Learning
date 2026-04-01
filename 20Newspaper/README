@@ -1,0 +1,48 @@
+Project Overview
+
+This project demonstrates the use of Singular Value Decomposition (SVD) for dimensionality reduction on text data to automatically discover latent topics from a collection of news articles. The approach leverages Latent Semantic Analysis (LSA) to extract compact topic representations, which can then support clustering or classification tasks.
+
+The project uses the 20 Newsgroups dataset as an example corpus, focusing on selected categories.
+
+Problem Statement
+
+A news aggregator wants to automatically identify latent topics from a large collection of articles. The goal is to:
+
+Transform text data into numerical form using TF-IDF vectorization.
+Reduce dimensionality using Truncated SVD.
+Extract and interpret latent topics.
+Evaluate the effectiveness of reduced representations for classification.
+Dataset
+
+The project uses the 20 Newsgroups dataset, available through scikit-learn.
+
+Selected example categories for demonstration:
+
+sci.space
+rec.autos
+talk.politics.misc
+
+Source: scikit-learn 20 Newsgroups dataset
+
+Implementation Steps
+1)Data Cleaning
+    Remove missing (NaN) documents.
+    Optional: remove headers, footers, and quotes from raw text.
+2)TF-IDF Vectorization
+    Converts text documents into numerical feature vectors.
+    Stopwords are removed to reduce noise.
+3)Dimensionality Reduction with SVD (LSA)
+    Apply TruncatedSVD with multiple component settings (e.g., 50, 100, 200).
+    Extract latent topics and interpret top 10 terms per topic.
+    Calculate explained variance to evaluate information retention.
+4)Classification Evaluation (Optional)
+    Use the reduced features to train a Logistic Regression classifier.
+    Measure accuracy to check how well reduced features preserve information.
+5)Visualization
+    Plot explained variance vs number of components.
+    Plot classification accuracy vs number of components (if classification is performed).
+    Optional: generate word clouds for top terms of each topic.
+6)Save Results
+    20newsgroups_subset.csv → cleaned dataset
+    lsa_topic_terms.txt → top 10 terms for first 5 topics
+    svd_results.csv → components, explained variance, classification accuracy
